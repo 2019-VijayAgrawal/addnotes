@@ -6,20 +6,6 @@ addBtn.addEventListener('click', function(){
   //  alert("chal");
   addNote();
 });
-// <!-- <div class="note">
-//             <div class="tool">
-                
-               
-//                 <i class="fa-solid fa-floppy-disk"></i>
-//                 <i class="fa-solid fa-trash-can"></i>
-//             </div>
-//             <textarea>
-
-//             </textarea>
-//         </div> -->
-
-
-
 
 
 const addNote = (text = "") => {
@@ -31,9 +17,7 @@ const addNote = (text = "") => {
               <i class="save fa-solid fa-floppy-disk"></i>
                <i class="trash fa-solid fa-trash-can"></i>
             </div>
-           <textarea 
-               ${text}
-             </textarea>
+           <textarea>${text}</textarea>
            
     `;
       note.querySelector('.trash').addEventListener('click', function(){
@@ -74,30 +58,20 @@ const saveNotes = () =>{
 
 (
     function(){
-          const ls_notes = JSON.parse( localStorage.getItem("notes"));
-          //console.log(ls_notes)
-        //   if(ls_notes === null){
-        //       addNote()
-        //   }else{
-        //     ls_notes.forEach( 
-        //         (ls_note) => {
-        //         addNote(ls_note);
-        //     }
-  
-        //     )
-        //   }
-        if(ls_notes === null){
+          const lsNotes = JSON.parse( localStorage.getItem("notes"));
+        
+        if(lsNotes === null){
             addNote()
         } else{
-        ls_notes.forEach( 
-            (ls_note) => {
-            addNote(ls_note);
+        lsNotes.forEach( 
+            (lsNote) => {
+            addNote(lsNote);
         }
 
         )
     }
 
-          if(ls_notes == null     ){
+          if(ls_notes == null  ){
               localStorage.removeItem("notes")
           }
           else{
